@@ -31,6 +31,8 @@ logstash_forwarder_home: /opt/logstash-forwarder
 logstash_ssl_cert_file: "logstash-nosafe.crt"
 logstash_ssl_key_file: "logstash-nosafe.key"
 
+logstash_config_wazuh_default: yes
+
 # Grant read permissions to logstash user
 logstash_grant_permissions:
 - /var/log/syslog
