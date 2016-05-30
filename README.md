@@ -1,10 +1,10 @@
-Stouts.logstash
-==============
+# Ansible Logstash Role
 
-[![Build Status](http://img.shields.io/travis/Stouts/Stouts.logstash.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.logstash)
-[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.logstash-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/1995)
+[![Circle CI](
+https://circleci.com/gh/verygood-ops/Stouts.logstash.svg
+)](https://circleci.com/gh/verygood-ops/Stouts.logstash)
 
-Ansible role which manage [Logstash](http://www.elasticsearch.org/overview/logstash/)
+Ansible role which manage [Logstash](http://www.elasticsearch.org/overview/logstash/) with [Wazuh](https://github.com/wazuh/ossec-wazuh) config by default
 
 * Install and configure logstash/logstash-forwarder
 
@@ -28,6 +28,8 @@ logstash_apt_key: http://packages.elasticsearch.org/GPG-KEY-elasticsearch
 logstash_apt_common_pkgs:
 - acl
 - oracle-java7-installer
+
+logstash_config_wazuh_default: yes          # Use Wazuh config file
 
 logstash_server_enabled: yes                # Setup logstash server
 logstash_forwarder_enabled: no              # Setup logstash forwarder
@@ -149,7 +151,3 @@ Example (forwarder setup):
 #### License
 
 Licensed under the MIT License. See the LICENSE file for details.
-
-#### Feedback, bug-reports, requests, ...
-
-Are [welcome](https://github.com/Stouts/Stouts.logstash/issues)!
