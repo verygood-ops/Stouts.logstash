@@ -2,7 +2,7 @@
 
 logstash_enabled: yes                       # The role is enabled
 logstash_remove: no                         # Uninstall the role
-logstash_url: https://download.elastic.co/logstash/logstash/packages/debian/logstash_1.4.2-1-2c0f5a1_all.deb
+logstash_url: https://download.elastic.co/logstash/logstash/packages/debian/logstash_2.2.2-1_all.deb
 logstash_forwarder_url: https://download.elastic.co/logstash-forwarder/binaries/logstash-forwarder_0.4.0_amd64.deb
 
 logstash_apt_repositories:                  # These repositories will be added to system
@@ -19,7 +19,7 @@ logstash_home: /opt/logstash
 logstash_confdir: /etc/logstash
 logstash_logdir: /var/log/logstash
 
-logstash_server_enabled: yes                # Setup logstash server
+logstash_server_enabled: no                 # Setup logstash server, using Wazuh config by default
 logstash_forwarder_enabled: no              # Setup logstash forwarder
 logstash_web_enabled: no                    # Setup logstash web
 
@@ -30,6 +30,9 @@ logstash_forwarder_home: /opt/logstash-forwarder
 # Certificates (please replace with your own files)
 logstash_ssl_cert_file: "logstash-nosafe.crt"
 logstash_ssl_key_file: "logstash-nosafe.key"
+
+logstash_config_wazuh_default: yes
+elasticsearch_server_ip: 127.0.0.1
 
 # Grant read permissions to logstash user
 logstash_grant_permissions:
@@ -65,7 +68,7 @@ logstash_config_filters: |
 # Logstash outputs
 logstash_config_outputs: |
   elasticsearch {
-    host => "localhost"
+    hosts => ["localhost"]
   }
 
 # Logstash patterns

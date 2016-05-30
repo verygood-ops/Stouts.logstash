@@ -1,0 +1,13 @@
+---
+
+- hosts: test_runners
+  become: yes
+  vars:
+    logstash_config_wazuh_default: no
+    logstash_forwarder_enabled: yes
+
+  roles:
+    - { role: Stouts.logstash }
+
+  post_tasks:
+    - include: remove.yml
