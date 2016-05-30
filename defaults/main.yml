@@ -68,7 +68,7 @@ logstash_config_filters: |
 # Logstash outputs
 logstash_config_outputs: |
   elasticsearch {
-    host => "localhost"
+    hosts => ["localhost"]
   }
 
 # Logstash patterns

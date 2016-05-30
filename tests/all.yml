@@ -1,7 +1,5 @@
 ---
 
-- hosts: test_runners
-  become: yes
-
-  roles:
-    - { role: Stouts.logstash }
+- include: wazuh_install.yml
+- include: standard_install.yml
+- include: forwarder_install.yml
