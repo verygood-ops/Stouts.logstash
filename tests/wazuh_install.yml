@@ -1,0 +1,10 @@
+---
+
+- hosts: test_runners
+  become: yes
+
+  roles:
+    - { role: Stouts.logstash }
+
+  post_tasks:
+    - include: remove.yml

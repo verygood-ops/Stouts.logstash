@@ -2,11 +2,13 @@
 
 - name: logstash-remove | Ensure the forwarder is stoped
   service: name=logstash-forwarder state=stopped enabled=no
+  when: logstash_forwarder_enabled
   changed_when: False
 
 - name: logstash-remove | Ensure the server is stoped
   service: name=logstash state=stopped enabled=no
+  when: logstash_server_enabled
   changed_when: False
 
-- name: logstash-remove | Remove the forwarder
+- name: logstash-remove | Remove config folder 
   file: state=absent path={{logstash_confdir}}
