@@ -1,0 +1,5 @@
+---
+
+- name: logstash-configure | Install plugins
+  command: "{{logstash_home}}/bin/plugin install {{ item }}"
+  with_items: logstash_plugins
