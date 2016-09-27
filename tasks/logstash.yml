@@ -21,6 +21,10 @@
   when: logstash_forwarder_enabled
   tags: [logstash, logstash-configure]
 
+- include: install-plugins.yml
+  when: logstash_server_enabled or logstash_forwarder_enabled
+  tags: [logstash, logstash-configure]
+
 - name: use wazuh default config file
   template:
     src=01-ossec-singlehost.conf

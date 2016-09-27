@@ -2,7 +2,7 @@
 
 - name: logstash-install | Add repositories
   apt_repository: repo='{{item}}' update_cache=yes
-  with_items: logstash_apt_repositories
+  with_items: '{{logstash_apt_repositories}}'
 
 - name: logstash-install | Accept Oracle license
   shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections; echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
@@ -10,7 +10,7 @@
 
 - name: logstash-install | Install commmon packages
   apt: pkg={{item}}
-  with_items: logstash_apt_common_pkgs
+  with_items: '{{logstash_apt_common_pkgs}}'
 
 - name: logstash-install | Download logstash
   get_url: url={{logstash_url}} dest={{logstash_home}}/logstash.deb

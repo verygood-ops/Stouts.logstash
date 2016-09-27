@@ -6,11 +6,11 @@ logstash_url: https://download.elastic.co/logstash/logstash/packages/debian/logs
 logstash_forwarder_url: https://download.elastic.co/logstash-forwarder/binaries/logstash-forwarder_0.4.0_amd64.deb
 
 logstash_apt_repositories:                  # These repositories will be added to system
-- ppa:webupd8team/java
+  - ppa:webupd8team/java
 
 logstash_apt_common_pkgs:
-- acl
-- oracle-java7-installer
+  - acl
+  - oracle-java7-installer
 
 logstash_user: logstash                     # logstash user
 logstash_group: "{{logstash_user}}"         # logstash group
@@ -36,7 +36,10 @@ elasticsearch_server_ip: 127.0.0.1
 
 # Grant read permissions to logstash user
 logstash_grant_permissions:
-- /var/log/syslog
+  - /var/log/syslog
+
+logstash_plugins:
+  - logstash-codec-cloudtrail
 
 # Logstash server options
 # -----------------------
